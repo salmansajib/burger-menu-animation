@@ -33,13 +33,13 @@ A React-based project featuring a smooth, animated burger menu using Framer Moti
 3. Install dependencies:
 
    ```bash
-   npm install
+   yarn
    ```
 
 4. Start the development server:
 
    ```bash
-   npm start
+   yarn dev
    ```
 
 ## Usage
