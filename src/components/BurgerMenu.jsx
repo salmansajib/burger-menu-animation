@@ -6,14 +6,13 @@ import {
   middleLineVariants,
   bottomLineVariants,
 } from "../animationVariants/burgerMenuVariants";
+import { useMenu } from "../hooks/useMenu";
 
-function BurgerMenu({ isOpen, setIsOpen }) {
-  const handleClick = () => {
-    setIsOpen((prev) => !prev);
-  };
+function BurgerMenu() {
+  const { isMenuOpen, toggleMenu } = useMenu();
 
   return (
-    <div onClick={handleClick} style={{ cursor: "pointer" }}>
+    <div onClick={toggleMenu} style={{ cursor: "pointer" }}>
       <AnimatePresence>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,21 +29,21 @@ function BurgerMenu({ isOpen, setIsOpen }) {
             d="M3 5h18"
             variants={topLineVariants}
             initial="closed"
-            animate={isOpen ? "open" : "closed"}
+            animate={isMenuOpen ? "open" : "closed"}
             exit="closed"
           />
           <motion.path
             d="M3 12h18"
             variants={middleLineVariants}
             initial="closed"
-            animate={isOpen ? "open" : "closed"}
+            animate={isMenuOpen ? "open" : "closed"}
             exit="closed"
           />
           <motion.path
             d="M3 19h18"
             variants={bottomLineVariants}
             initial="closed"
-            animate={isOpen ? "open" : "closed"}
+            animate={isMenuOpen ? "open" : "closed"}
             exit="closed"
           />
         </svg>
